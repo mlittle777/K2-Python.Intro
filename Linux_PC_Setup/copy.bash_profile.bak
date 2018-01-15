@@ -1,0 +1,18 @@
+alias jnb='jupyter notebook'
+alias g='grep -1'
+alias lr='ls -hartl'
+alias get='curl -OL'
+# Customize prompt to show only working directory.
+#PS1='${debian_chroot:+($debian_chroot)}\[\033[01;34m\]\w \$\[\033[00m\] '
+#Deprecated to support git prompt changes
+
+# Git configuration
+# Branch name in prompt
+source ~/.git-prompt.sh
+PS1='${debian_chroot:+($debian_chroot)}\[\033[00;34m\]\w\[\033[01;034;03m\]$(__git_ps1 " (%s)") \[\033[00;33m\]\$\[\033[00m\] '
+export PROMPT_COMMAND='echo -ne "\033]0;${PWD/#$HOME/~}\007"'
+# Tab completion for branch names
+source ~/.git-completion.bash
+
+
+export PATH="~/bin:$PATH"
